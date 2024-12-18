@@ -1,0 +1,43 @@
+@import '../../_styles/colors.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: $color-cream;
+}
+  
+.navContainer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.link {
+  color: $color-green;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.loginButton {
+  .link {
+    padding: 0.5rem 1rem;
+    border: 1px solid $color-peach;
+    border-radius: 5px;
+    color: $color-coral;
+
+    &:hover {
+      background-color: $color-coral;
+      color: $color-cream;
+    }
+  }
+}

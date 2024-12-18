@@ -1,0 +1,75 @@
+@import '../_styles/colors.scss';
+
+
+.main {
+  
+    h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 50px;
+        color: #3f3f3f;
+    }
+    
+}
+
+.searchBar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  
+    input {
+        width: 25%;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    // Media query for mobile screens
+    @media (max-width: 600px) {
+        input {
+            width: 15rem;
+        }
+    }
+  
+    button {
+        padding: 10px;
+        background-color: $color-green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
+  
+.recipesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+  
+    .recipeCard {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        transition: box-shadow 0.3s ease-in-out;
+    
+        &:hover {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        h3 {
+            margin: 10px 0;
+        }
+    
+        p {
+            color: #666;
+        }
+    }
+}
