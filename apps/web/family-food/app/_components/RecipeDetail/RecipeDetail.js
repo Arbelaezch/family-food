@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Clock, Users, AlertTriangle } from 'lucide-react';
 import styles from './RecipeDetail.module.scss';
+import Navbar from '../../_components/Navbar/Navbar';
 
 const RecipeDetail = ({ recipe }) => {
   const [imageError, setImageError] = useState(false);
@@ -28,6 +29,8 @@ const RecipeDetail = ({ recipe }) => {
   
   return (
     <div className={styles.recipeDetail}>
+        <Navbar />
+
       {/* Hero Section */}
       <div className={styles.hero}>
         {recipe.image_url && !imageError ? (
