@@ -13,6 +13,8 @@ const getApiBaseUrl = () => {
     baseUrl: getApiBaseUrl(),
     endpoints: {
       recipes: '/api/v1/recipes/',
+      login: '/admin',
+      contact: '#footer',
       // Add other endpoints here
     }
   };
