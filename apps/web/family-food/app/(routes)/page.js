@@ -22,7 +22,9 @@ export default function Home() {
   const CATEGORIES = [
     { value: 'breakfast', label: 'Breakfast' },
     { value: 'lunch', label: 'Lunch' },
-    { value: 'dinner', label: 'Dinner' }
+    { value: 'dinner', label: 'Dinner' },
+    { value: 'dessert', label: 'Dessert' },
+    { value: 'snack', label: 'Snack' },
   ];
 
   // Fetch all recipes on component mount
