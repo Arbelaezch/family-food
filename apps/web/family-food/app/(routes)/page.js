@@ -9,15 +9,21 @@ import { apiConfig } from '../config/api';
 import RecipeCard from '../_components/RecipeCard/RecipeCard';
 
 export default function Home() {
-  // State management
   const [allRecipes, setAllRecipes] = useState([]); // Cache of all recipes
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [categoryFilter, setCategoryFilter] = useState('');
+  const [difficultyFilter, setDifficultyFilter] = useState('');
 
-  // Pagination settings
   const ITEMS_PER_PAGE = 12;
+  const DIFFICULTIES = ['easy', 'medium', 'hard'];
+  const CATEGORIES = [
+    { value: 'breakfast', label: 'Breakfast' },
+    { value: 'lunch', label: 'Lunch' },
+    { value: 'dinner', label: 'Dinner' }
+  ];
 
   // Fetch all recipes on component mount
   useEffect(() => {
@@ -49,15 +55,28 @@ export default function Home() {
     };
 
     fetchAllRecipes();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
-  // Filter recipes based on search query
+  // Filter recipes based on search query, category, and difficulty
   const filteredRecipes = useMemo(() => {
-    return allRecipes.filter(recipe => 
-      recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (recipe.description && recipe.description.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
-  }, [allRecipes, searchQuery]);
+    return allRecipes.filter(recipe => {
+      // Search text filter
+      const matchesSearch = 
+        recipe.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (recipe.description && recipe.description.toLowerCase().includes(searchQuery.toLowerCase()));
+      
+      // Category filter
+      const matchesCategory = 
+        !categoryFilter || recipe.category.toLowerCase() === categoryFilter.toLowerCase();
+      
+      // Difficulty filter
+      const matchesDifficulty = 
+        !difficultyFilter || recipe.difficulty.toLowerCase() === difficultyFilter.toLowerCase();
+      
+      // Return true only if all conditions are met
+      return matchesSearch && matchesCategory && matchesDifficulty;
+    });
+  }, [allRecipes, searchQuery, categoryFilter, difficultyFilter]);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredRecipes.length / ITEMS_PER_PAGE);
@@ -66,10 +85,20 @@ export default function Home() {
     return filteredRecipes.slice(startIndex, startIndex + ITEMS_PER_PAGE);
   }, [filteredRecipes, currentPage]);
 
-  // Handle search input change
+  // Handle input changes
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); // Reset to first page when searching
+    setCurrentPage(1); // Reset to first page when filter changes
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategoryFilter(e.target.value);
+    setCurrentPage(1); // Reset to first page when filter changes
+  };
+
+  const handleDifficultyChange = (e) => {
+    setDifficultyFilter(e.target.value);
+    setCurrentPage(1); // Reset to first page when filter changes
   };
 
   // Pagination controls
@@ -83,17 +112,49 @@ export default function Home() {
       <Navbar />
       <h2>Arbelaez Family Recipes</h2>
 
-      {/* Search Bar */}
-      <div className={styles.searchBar}>
-        <input
-          type="text"
-          placeholder="Search for recipes..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          className={styles.searchInput}
-        />
+      {/* Search Bar and Filters */}
+      <div className={styles.searchBarContainer}>
+        <div>
+          <select
+            value={difficultyFilter}
+            onChange={handleDifficultyChange}
+            className={styles.filterSelect}
+          >
+            <option value="">All Difficulties</option>
+            {DIFFICULTIES.map(difficulty => (
+              <option key={difficulty} value={difficulty}>
+                {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <select
+            value={categoryFilter}
+            onChange={handleCategoryChange}
+            className={styles.filterSelect}
+          >
+            <option value="">All Categories</option>
+            {CATEGORIES.map(category => (
+              <option key={category.value} value={category.value}>
+                {category.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.searchBar}>
+          <input
+            type="text"
+            placeholder="Search for recipes..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className={styles.searchInput}
+          />
+        </div>
       </div>
-      
+
       {/* Error Message */}
       {error && (
         <div className={styles.error}>
@@ -123,7 +184,10 @@ export default function Home() {
 
           {/* No Results Message */}
           {filteredRecipes.length === 0 && (
-            <p className={styles.noResults}>No recipes found matching "{searchQuery}"</p>
+            <p className={styles.noResults}>
+              No recipes found matching your criteria
+              {searchQuery && ` including "${searchQuery}"`}
+            </p>
           )}
 
           {/* Pagination Controls */}
@@ -159,5 +223,5 @@ export default function Home() {
         </>
       )}
     </main>
-  )
+  );
 }

@@ -2,7 +2,6 @@
 
 
 .main {
-  
     h2 {
         font-family: 'Dancing Script', cursive;
         font-size: 2.5rem;
@@ -10,39 +9,58 @@
         margin-top: 50px;
         color: #3f3f3f;
     }
-    
 }
 
-.searchBar {
-    margin: 20px 0;
+.searchBarContainer {
     display: flex;
     justify-content: center;
-  
-    input {
-        width: 25%;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+
+    .searchBar {
+        display: flex;
+        justify-content: center;
+    
+        input {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        button {
+            padding: 10px;
+            background-color: $color-green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        
+            &:hover {
+                background-color: #0056b3;
+            }
+        }
+    }
+
+    .filterSelect {
         padding: 10px;
-        margin-right: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        background-color: white;
     }
 
     // Media query for mobile screens
-    @media (max-width: 600px) {
-        input {
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+
+        .searchBar input {
             width: 15rem;
         }
-    }
-  
-    button {
-        padding: 10px;
-        background-color: $color-green;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    
-        &:hover {
-            background-color: #0056b3;
+
+        .filterSelect {
+            width: 15rem;
         }
     }
 }
@@ -54,8 +72,8 @@
     padding: 2rem;
     
     @media (max-width: 640px) {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
     }
 }
