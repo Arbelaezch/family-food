@@ -6,6 +6,7 @@ import styles from './page.module.scss'
 import Navbar from '../_components/Navbar/Navbar';
 import { apiFetch } from '../_components/api/apiFetch';
 import { apiConfig } from '../config/api';
+import RecipeCard from '../_components/RecipeCard/RecipeCard';
 
 export default function Home() {
   // State management
@@ -116,30 +117,10 @@ export default function Home() {
           {/* Recipes Grid */}
           <div className={styles.recipesGrid}>
             {paginatedRecipes.map((recipe) => (
-              <div 
-                className={styles.recipeCard} 
-                key={recipe.id}
-              >
-                {recipe.image_url && (
-                  <div className={styles.imageWrapper}>
-                    <Image 
-                      src={recipe.image_url} 
-                      alt={recipe.title} 
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className={styles.recipeImage}
-                      onError={(e) => {
-                        e.target.src = '/placeholder-recipe.jpg';
-                      }}
-                    />
-                  </div>
-                )}
-                <h3>{recipe.title}</h3>
-                <p>{recipe.description || 'No description available'}</p>
-                <div className={styles.recipeInfo}>
-                  <span>Difficulty: {recipe.difficulty}</span>
-                  {recipe.rating && <span>Rating: {recipe.rating}/5</span>}
-                </div>
+              <div className={styles.recipesGrid}>
+                {paginatedRecipes.map((recipe) => (
+                  <RecipeCard key={recipe.id} recipe={recipe} />
+                ))}
               </div>
             ))}
           </div>
