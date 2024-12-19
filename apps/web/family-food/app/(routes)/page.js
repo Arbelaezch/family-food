@@ -118,9 +118,9 @@ export default function Home() {
           <div className={styles.recipesGrid}>
             {paginatedRecipes.map((recipe) => (
               <div className={styles.recipesGrid}>
-                {paginatedRecipes.map((recipe) => (
+                {/* {paginatedRecipes.map((recipe) => (
                   recipe ? <RecipeCard key={recipe.id} recipe={recipe} /> : null
-                ))}
+                ))} */}
               </div>
             ))}
           </div>
