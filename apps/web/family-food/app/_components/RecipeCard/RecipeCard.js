@@ -2,6 +2,8 @@ import Image from 'next/image';
 import styles from './RecipeCard.module.scss';
 
 const RecipeCard = ({ recipe }) => {
+  if (!recipe) return null;
+
   return (
     <div className={styles.recipeCard}>
       <div className={styles.imageContainer}>
