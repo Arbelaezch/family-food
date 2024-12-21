@@ -22,7 +22,7 @@ const RecipeCard = ({ recipe }) => {
       <h3 className={styles.title}>{recipe.title}</h3>
       <div className={styles.recipeInfo}>
         <span>Difficulty: {recipe.difficulty[0].toUpperCase() + recipe.difficulty.slice(1)}</span>
-        {recipe.rating && <span>Rating: {recipe.rating}/5</span>}
+        {/* {recipe.rating && <span>Rating: {recipe.rating}/5</span>} */}
       </div>
     </Link>
   );
