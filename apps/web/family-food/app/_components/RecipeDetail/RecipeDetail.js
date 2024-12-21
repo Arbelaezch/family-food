@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Clock, Users, AlertTriangle } from 'lucide-react';
 // import styles from './RecipeDetail.module.scss';
 import Navbar from "../../_components/Navbar/Navbar";
+import RecipeDirections from "../../_components/RecipeDirections/RecipeDirections";
 
 const RecipeDetail = ({ recipe }) => {
   const [imageError, setImageError] = useState(false);
@@ -138,10 +139,7 @@ const RecipeDetail = ({ recipe }) => {
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-200">
                 Directions
               </h2>
-              <div
-                className="prose prose-lg prose-gray max-w-none [&>ol]:list-none [&>ol]:p-0 [&>ol]:counter-reset-[step] [&>ol>li]:mb-6 [&>ol>li]:pl-10 [&>ol>li]:relative [&>ol>li]:before:content-[counter(step)] [&>ol>li]:before:counter-increment-[step] [&>ol>li]:before:absolute [&>ol>li]:before:left-0 [&>ol>li]:before:flex [&>ol>li]:before:items-center [&>ol>li]:before:justify-center [&>ol>li]:before:w-7 [&>ol>li]:before:h-7 [&>ol>li]:before:bg-emerald-500 [&>ol>li]:before:text-white [&>ol>li]:before:rounded-full [&>ol>li]:before:text-sm [&>ol>li]:before:font-semibold"
-                dangerouslySetInnerHTML={createMarkup(recipe.directions)}
-              />
+              <RecipeDirections directions={recipe.directions} />
             </section>
           </div>
         </div>
