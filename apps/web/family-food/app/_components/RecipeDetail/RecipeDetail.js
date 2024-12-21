@@ -113,7 +113,7 @@ const RecipeDetail = ({ recipe }) => {
                     <div className="flex items-center gap-3 mb-4 last:mb-0">
                       <AlertTriangle className="text-gray-500" size={20} />
                       <span className="text-gray-700">
-                        Difficulty: {recipe.difficulty}
+                        Difficulty: {recipe.difficulty[0].toUpperCase() + recipe.difficulty.slice(1)}
                       </span>
                     </div>
                   )}
