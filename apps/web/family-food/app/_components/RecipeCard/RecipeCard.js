@@ -20,11 +20,8 @@ const RecipeCard = ({ recipe }) => {
         />
       </div>
       <h3 className={styles.title}>{recipe.title}</h3>
-      <p className={styles.description}>
-        {recipe.description || 'No description available'}
-      </p>
       <div className={styles.recipeInfo}>
-        <span>Difficulty: {recipe.difficulty}</span>
+        <span>Difficulty: {recipe.difficulty[0].toUpperCase() + recipe.difficulty.slice(1)}</span>
         {recipe.rating && <span>Rating: {recipe.rating}/5</span>}
       </div>
     </Link>
