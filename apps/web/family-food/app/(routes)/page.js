@@ -187,7 +187,7 @@ export default function Home() {
           {/* No Results Message */}
           {filteredRecipes.length === 0 && (
             <p className={styles.noResults}>
-              No recipes found matching your criteria.
+              No recipes found matching your criteria
               {searchQuery && ` including "${searchQuery}"`}
             </p>
           )}
