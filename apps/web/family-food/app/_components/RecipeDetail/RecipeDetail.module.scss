@@ -1,138 +1,138 @@
-.recipeDetail {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-  }
+// .recipeDetail {
+//     width: 100%;
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     padding: 0;
+//   }
   
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    min-height: 300px;
-    max-height: 500px;
-    margin-bottom: 2rem;
+//   .hero {
+//     position: relative;
+//     width: 100%;
+//     height: 50vh;
+//     min-height: 300px;
+//     max-height: 500px;
+//     margin-bottom: 2rem;
   
-    .heroImage {
-      object-fit: cover;
-    }
+//     .heroImage {
+//       object-fit: cover;
+//     }
   
-    .placeholderImage {
-      width: 100%;
-      height: 100%;
-      background-color: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-    }
+//     .placeholderImage {
+//       width: 100%;
+//       height: 100%;
+//       background-color: #f0f0f0;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       color: #666;
+//     }
   
-    .heroOverlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      padding: 2rem;
-    }
+//     .heroOverlay {
+//       position: absolute;
+//       bottom: 0;
+//       left: 0;
+//       right: 0;
+//       background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+//       padding: 2rem;
+//     }
   
-    .title {
-      color: white;
-      font-size: 2.5rem;
-      margin: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-  }
+//     .title {
+//       color: white;
+//       font-size: 2.5rem;
+//       margin: 0;
+//       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+//     }
+//   }
   
-  .infoSection {
-    padding: 0 1rem;
-  }
+//   .infoSection {
+//     padding: 0 1rem;
+//   }
   
-  .contentContainer {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
+//   .contentContainer {
+//     display: flex;
+//     gap: 2rem;
+//     margin-bottom: 2rem;
     
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-  }
+//     @media (max-width: 768px) {
+//       flex-direction: column;
+//     }
+//   }
   
-  .descriptionColumn {
-    flex: 2;
+//   .descriptionColumn {
+//     flex: 2;
     
-    .description {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-  }
+//     .description {
+//       font-size: 1.1rem;
+//       line-height: 1.6;
+//       color: #333;
+//     }
+//   }
   
-  .metadataColumn {
-    flex: 1;
-    min-width: 250px;
-  }
+//   .metadataColumn {
+//     flex: 1;
+//     min-width: 250px;
+//   }
   
-  .metadataCard {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+//   .metadataCard {
+//     background-color: #f8f8f8;
+//     border-radius: 8px;
+//     padding: 1.5rem;
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   }
   
-  .metadataItem {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+//   .metadataItem {
+//     display: flex;
+//     align-items: center;
+//     gap: 0.75rem;
+//     margin-bottom: 1rem;
     
-    &:last-child {
-      margin-bottom: 0;
-    }
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
   
-    svg {
-      color: #666;
-    }
+//     svg {
+//       color: #666;
+//     }
   
-    span {
-      font-size: 1rem;
-      color: #333;
-    }
-  }
+//     span {
+//       font-size: 1rem;
+//       color: #333;
+//     }
+//   }
   
-  .ingredientsSection,
-  .directionsSection {
-    margin-bottom: 2rem;
+//   .ingredientsSection,
+//   .directionsSection {
+//     margin-bottom: 2rem;
   
-    h2 {
-      font-size: 1.75rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-  }
+//     h2 {
+//       font-size: 1.75rem;
+//       color: #333;
+//       margin-bottom: 1rem;
+//     }
+//   }
   
-  .ingredients,
-  .directions {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
+//   .ingredients,
+//   .directions {
+//     font-size: 1.1rem;
+//     line-height: 1.6;
+//     color: #333;
   
-    p {
-      margin-bottom: 0.75rem;
-    }
-  }
+//     p {
+//       margin-bottom: 0.75rem;
+//     }
+//   }
   
-  // Add padding on mobile screens
-  @media (max-width: 768px) {
-    .hero {
-      height: 40vh;
+//   // Add padding on mobile screens
+//   @media (max-width: 768px) {
+//     .hero {
+//       height: 40vh;
       
-      .title {
-        font-size: 2rem;
-      }
-    }
+//       .title {
+//         font-size: 2rem;
+//       }
+//     }
   
-    .infoSection {
-      padding: 0 1rem;
-    }
-  }
+//     .infoSection {
+//       padding: 0 1rem;
+//     }
+//   }
